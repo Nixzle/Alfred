@@ -44,7 +44,7 @@ class LauncherTests(unittest.TestCase):
         config.write_text('model = "user-choice"\n')
         alfred.prepare_profile(self.profile, self.root)
         self.assertEqual(config.read_text(), 'model = "user-choice"\n')
-        self.assertIn('You are Ultron Prime', (self.profile / 'AGENTS.md').read_text())
+        self.assertIn('You are Alfred', (self.profile / 'AGENTS.md').read_text())
 
     def test_modified_instructions_are_not_overwritten(self):
         alfred.prepare_profile(self.profile, self.root)

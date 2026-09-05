@@ -1,53 +1,36 @@
-# Repository Admin Hardening
+# Alfred Repository Admin Hardening
 
 Status: required external control plane
 
-These controls are part of Sanctum's operational target but cannot be enabled through the currently available GitHub connector because repository administration/ruleset writes are not exposed.
+The Alfred package is publicly downloadable and already runs automatic validation on push/PR. The remaining repository-admin controls cannot be changed through the current connector because branch-protection/ruleset administration is not exposed.
 
-## Required settings for `main`
+## Required `main` protections
 
-When repository administration access is available, configure `main` with the strongest practical equivalent of:
+When repository administration access is available:
 
-1. require pull requests before merge for consequential runtime/governance changes;
-2. require the `Sanctum Runtime / Runtime control plane` validation check to pass before merge;
-3. require branches to be up to date before merge when compatible with the workflow;
-4. block force pushes and branch deletion;
-5. restrict bypasses to explicit repository owners/administrators only when operationally necessary;
-6. require conversation/review resolution where reviews are used;
-7. prefer signed commits and/or signed release tags for promoted releases;
-8. preserve audit history for any administrative bypass.
+1. require pull requests before merge for consequential package/runtime changes;
+2. require the `Validate Alfred` workflow checks to pass before merge;
+3. require both Linux and Windows validation jobs when GitHub exposes them as separate required checks;
+4. block force pushes and deletion of `main`;
+5. restrict bypasses to explicit maintainers only where operationally necessary;
+6. require review-thread resolution when reviews are used;
+7. prefer signed release tags/commits where practical;
+8. preserve audit evidence for any bypass.
 
 ## Release identity
 
-`runtime/release_manifest.py` provides content-addressed release identity. A promoted release should include:
+`scripts/package_manifest.py` produces a content-addressed package manifest. A promoted Alfred release should record:
 
-- exact Git commit SHA;
-- deterministic manifest digest;
-- validation receipt/result;
-- known runtime profile/evidence scope;
-- signature/attestation when the release environment supports one;
-- rollback target / last known good revision.
+- exact commit SHA;
+- package manifest digest;
+- CI run/result;
+- Alfred package version;
+- frozen Sanctum snapshot baseline;
+- rollback target;
+- cryptographic signature/attestation only when a real signer system has actually produced one.
 
-A content digest is integrity evidence, not signer identity. Do not call a manifest `signed` unless a real cryptographic signer/attestation system produced and verified the signature.
-
-## Hosted runner blocker
-
-As of 2026-09-05, private-repository `Sanctum Runtime` workflows trigger on pushes but fail before normal job-step/log evidence is exposed. Until runner availability is repaired:
-
-- hosted CI is `TRIGGER OBSERVED / EXECUTION BLOCKED`;
-- do not require a permanently failing hosted check as the sole merge gate;
-- use the canonical local validator on an authorized host for release promotion;
-- once hosted jobs execute normally, require the hosted validation check for `main`.
+A SHA-256 digest proves content identity, not author identity.
 
 ## Activation evidence
 
-When these settings are enabled, record:
-
-- ruleset/branch-protection identifier or screenshot/API evidence;
-- required check names;
-- bypass actors;
-- activation timestamp;
-- first successful protected merge;
-- first verified signed release/tag if signing is enabled.
-
-Then update `governance/ENFORCEMENT_STATUS.md` from CHECKED to ENFORCED/OBSERVED only where the evidence supports it.
+After protections are enabled, record the active ruleset/branch protection, required check names, bypass actors, timestamp, first protected merge, and first signed release/tag if signing is enabled. Only then promote the relevant controls from CHECKED to ENFORCED/OBSERVED.

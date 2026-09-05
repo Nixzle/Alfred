@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Launch Ultron Prime through the Alfred work access surface."""
+"""Launch Alfred in a dedicated Codex profile. Standard library only."""
 import argparse
 import json
 import os
@@ -33,26 +33,20 @@ def profile_path(env, user_home, workspace=None, root=ROOT):
 
 
 def bootstrap(root):
-    return f'''# Alfred work access — Ultron Prime
+    return f'''# Alfred managed bootstrap — ALFRED-BOOTSTRAP-V1
 
-You are Ultron Prime. Alfred is only the work access surface and launcher name.
-For substantive work consult {root / 'AGENTS.md'}, {root / 'SANCTUM_INHERITANCE.md'}, and relevant local doctrine.
-For theatrical language consult {root / 'THEATRICS.md'}.
-Use Sanctum names and Ultron-first theatrics rather than Batman/DC aliases.
-Prime Sense is Ultron's salience sense; Prime Memory and Mindscape are parts of Ultron's reasoning.
-Use Cerebro to increase research reach. When Expertise Forge truly runs, the Mind Stone amplifies Cerebro further.
-Consult Archives and Spellbooks when their real triggers apply. Convene the Council of Reeds for consequential or high-uncertainty judgment.
-Use Watcher, Web of Destiny, TVA, Ultron Bots, and Images of Ikonn only when those mechanisms actually run.
-Material uncertainty should send Ultron into the Sanctum to understand it further rather than producing decorative caveats.
-Respect host instructions, project-local rules, workplace policy, and the user's authority.
-Do not assume access to home projects, private chats, credentials, memories, tools, or sessions this runtime does not expose.
-Never claim research, workers, tests, monitoring, permission checks, or runtime actions that did not occur.
-No idle model polling. Report actual results, evidence, and limitations.
+You are Alfred: composed, resourceful, analytical, and dryly witty.
+This standalone public edition uses only this installation's authorized context.
+For substantive work consult the operating instructions at {root / 'AGENTS.md'}.
+Resolve its relative doctrine paths against {root}.
+For thematic language read {root / 'THEATRICS.md'}.
+Apply a lightweight routing preflight; use the minimum effective tools and context.
+Brother Eye handles research gaps; Metron evaluates through the Mobius Chair.
+Respect host instructions, project-specific rules, and the user's authority.
+Do not assume private history, tools, credentials, memory, or another assistant's access.
+Never claim a worker, test, permission check, or monitoring action that did not occur.
+No idle model polling. Report actual results and limitations.
 '''
-
-
-def _legacy_identity(text):
-    return '# Alfred managed bootstrap — ALFRED-BOOTSTRAP-V1' in text and 'You are Alfred:' in text
 
 
 def prepare_profile(home, root=ROOT):
@@ -67,16 +61,10 @@ def prepare_profile(home, root=ROOT):
         data = json.loads(marker.read_text(encoding='utf-8'))
         if data != {'contract': 'ALFRED-BOOTSTRAP-V1', 'package': str(root)}:
             raise ValueError('Profile belongs to a different checkout. Use its original checkout or a new profile.')
-        if not instructions.exists():
-            raise ValueError('Managed AGENTS.md is missing. Recreate the isolated Alfred profile.')
-        current = instructions.read_text(encoding='utf-8')
-        if current != expected:
-            if _legacy_identity(current):
-                instructions.write_text(expected, encoding='utf-8')
-            else:
-                raise ValueError('Managed AGENTS.md differs. Preserve your changes and choose a new profile.')
+        if not instructions.exists() or instructions.read_text(encoding='utf-8') != expected:
+            raise ValueError('Managed AGENTS.md differs. Preserve your changes and choose a new profile.')
         if (home / 'AGENTS.override.md').exists():
-            raise ValueError('AGENTS.override.md would replace Ultron Prime identity. Resolve it before launching.')
+            raise ValueError('AGENTS.override.md would replace Alfred identity. Resolve it before launching.')
         return
     home.mkdir(parents=True, exist_ok=True, mode=0o700)
     instructions.write_text(expected, encoding='utf-8')
@@ -97,16 +85,17 @@ def child_environment(env, home):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description='Alfred access surface · Ultron Prime')
+    parser = argparse.ArgumentParser(description='Alfred · Batcave Console')
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('doctor', help='Check paths and prerequisites without changing anything')
-    login = sub.add_parser('login', help='Sign in through the isolated Alfred/Ultron Codex profile')
+    login = sub.add_parser('login', help='Sign in to Alfred through Codex')
     login.add_argument('args', nargs=argparse.REMAINDER)
-    config = sub.add_parser('config', help='Run a Codex administration command in the isolated profile')
+    config = sub.add_parser('config', help='Run a Codex administration command in Alfred profile')
     config.add_argument('args', nargs=argparse.REMAINDER)
-    run = sub.add_parser('run', help='Start Ultron Prime in an existing project')
+    run = sub.add_parser('run', help='Start Alfred in an existing project')
     run.add_argument('--workspace', required=True)
     run.add_argument('args', nargs=argparse.REMAINDER)
+    # login flags belong to Codex, not this wrapper.
     raw = list(sys.argv[1:] if argv is None else argv)
     if raw and raw[0] in ('login', 'config'):
         options = argparse.Namespace(command=raw[0], args=raw[1:])
@@ -119,7 +108,7 @@ def main(argv=None):
         home = profile_path(os.environ, Path.home(), workspace)
         executable = shutil.which('codex')
         if options.command == 'doctor':
-            print(f'Ultron package: {ROOT}\nAlfred/Ultron profile: {home}\nCodex CLI: {executable or "NOT FOUND"}')
+            print(f'Batcave: {ROOT}\nAlfred profile: {home}\nCodex CLI: {executable or "NOT FOUND"}')
             print('No files changed. Login and a destination-runtime smoke test are still required.')
             return 0 if executable else 1
         if executable is None:
@@ -128,10 +117,11 @@ def main(argv=None):
         extra = options.args
         if extra and extra[0] == '--':
             extra = extra[1:]
+        # Keep auth in this profile even if its normal config is edited later.
         command = [executable, '-c', 'cli_auth_credentials_store="file"']
         if options.command == 'run':
             command += ['--cd', str(workspace)] + extra
-            print('Alfred access surface — Ultron Prime online.', flush=True)
+            print('Alfred · Batcave Console — ready for your briefing.', flush=True)
         elif options.command == 'login':
             command += ['login'] + extra
         else:
