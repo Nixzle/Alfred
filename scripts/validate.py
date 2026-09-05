@@ -8,14 +8,18 @@ PARITY_FILES = {
     Path('SANCTUM_INHERITANCE.md'),
     Path('THEATRICS.md'),
     Path('bootstrap/README.md'),
+    Path('bootstrap/SANCTUM_PORTABLE_CORE.md'),
 }
+
+CURRENT_SANCTUM_BASELINE = '98a00c324d86e468c34f7308f1e5d835eae34c32'
 
 
 def validate():
     errors = []
     required = (
         'AGENTS.md', 'THEATRICS.md', 'SANCTUM_INHERITANCE.md', 'README.md', 'VERSION',
-        'scripts/alfred.py', 'bootstrap/README.md', 'batcomputer/README.md', 'VERIFICATION.md'
+        'scripts/alfred.py', 'bootstrap/README.md', 'bootstrap/SANCTUM_PORTABLE_CORE.md',
+        'batcomputer/README.md', 'VERIFICATION.md'
     )
     for name in required:
         if not (ROOT / name).is_file():
@@ -31,7 +35,7 @@ def validate():
                 errors.append(f'Broken link: {rel} -> {link}')
 
         # Sanctum names are allowed only in the explicit inheritance/presentation
-        # contract. Elsewhere they indicate accidental identity/taxonomy leakage.
+        # contracts. Elsewhere they indicate accidental identity/taxonomy leakage.
         if rel not in PARITY_FILES and re.search(
             r'\b(?:Ultrons?|Sanctum|Cerebro|Ikonn|TVA)\b|Web of Destiny|Council of Reeds|Bat Vault',
             content, re.I
@@ -49,12 +53,17 @@ def validate():
             errors.append(f'Missing approved name: {name}')
 
     parity = (ROOT / 'SANCTUM_INHERITANCE.md').read_text(encoding='utf-8') if (ROOT / 'SANCTUM_INHERITANCE.md').exists() else ''
+    snapshot = (ROOT / 'bootstrap/SANCTUM_PORTABLE_CORE.md').read_text(encoding='utf-8') if (ROOT / 'bootstrap/SANCTUM_PORTABLE_CORE.md').exists() else ''
     bootstrap = (ROOT / 'bootstrap/README.md').read_text(encoding='utf-8') if (ROOT / 'bootstrap/README.md').exists() else ''
     theatrics = (ROOT / 'THEATRICS.md').read_text(encoding='utf-8') if (ROOT / 'THEATRICS.md').exists() else ''
 
-    for marker in ('ALFRED-SANCTUM-PARITY-V1', 'e835c0d914bf1d7a72da0bcbb2e488bc4566f8ed'):
+    for marker in ('ALFRED-SANCTUM-PARITY-V1', CURRENT_SANCTUM_BASELINE):
         if marker not in parity:
             errors.append(f'Missing Sanctum parity marker: {marker}')
+    for marker in ('ALFRED-SANCTUM-SNAPSHOT-V1', CURRENT_SANCTUM_BASELINE,
+                   'ENFORCE -> OBSERVE -> BREAK DELIBERATELY -> RECOVER -> MEASURE -> TIGHTEN'):
+        if marker not in snapshot:
+            errors.append(f'Missing public Sanctum snapshot marker: {marker}')
     if 'ALFRED-SANCTUM-PARITY-V1' not in bootstrap:
         errors.append('Bootstrap does not load Sanctum parity contract')
     for phrase in ('Brother Eye', 'Bat-Drones', 'Bat-Family', 'Oracle', 'Mobius Chair', 'Justice League', 'Contingency Plans'):
@@ -64,7 +73,7 @@ def validate():
     if errors:
         print('\n'.join(errors))
         return 1
-    print('PASS: required files, links, Alfred naming, Sanctum parity markers, theatrics mapping, and publication scan.')
+    print('PASS: required files, public Sanctum snapshot, Alfred naming, parity markers, theatrics mapping, and publication scan.')
     print('This proves package-level semantic wiring only; live tools, permissions, credentials, memory, and worker capabilities still require runtime probing.')
     return 0
 
