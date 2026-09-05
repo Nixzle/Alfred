@@ -1,7 +1,7 @@
 # Public Sanctum Core Snapshot for Alfred
 
 Snapshot contract: `ALFRED-SANCTUM-SNAPSHOT-V1`
-Upstream baseline: `Nixzle/Sanctum@98a00c324d86e468c34f7308f1e5d835eae34c32`
+Upstream baseline: `Nixzle/Sanctum@b997221b889138e40d8797fca13efc89d41afaf0`
 
 This file exists because Alfred is public while canonical Sanctum may not be accessible to every Alfred user. A fresh Alfred clone must therefore remain operationally self-contained instead of depending on a private upstream repository.
 
@@ -84,6 +84,16 @@ Zero-tolerance default invariants:
 - no consequential action without attributable authority/evidence;
 - no release claim stronger than validation evidence.
 
+Current hardened mechanisms inherited at this baseline include:
+
+- automatic push/PR/manual/weekly validation configuration;
+- deterministic operational SLO and repeated-run evaluation;
+- baseline/tolerance drift comparison contracts;
+- actual bounded-runtime fault regressions for duplicate effects, operation-ID conflicts, revoked grants, expired authority and workspace escape;
+- content-addressed recovery bundles with path-traversal/link rejection and no-overwrite restore semantics;
+- content-addressed release manifests tying revision to exact file hashes;
+- explicit repository-admin hardening requirements for protected `main`, required checks and signed release discipline where supported.
+
 Representative fault-injection cases:
 
 - timeout after successful effect;
@@ -103,6 +113,12 @@ Representative fault-injection cases:
 A recovery drill should verify restoration to last-known-good state, acceptance/regression passes, reconciliation of unknown effects, and fresh authority validation.
 
 A single successful run proves capability, not reliability. Repeated-run evidence should track averages, worst cases, failure distribution, latency, cost, retries, retrieval misses, repeated corrections, and recovery time where meaningful.
+
+## Current evidence boundary
+
+At this baseline, Sanctum's private GitHub Actions workflow trigger has been OBSERVED, but hosted execution is blocked before normal job-step/log evidence appears. Therefore the workflow is not treated as a successful release gate. Local validation or another verified runner remains necessary before release promotion.
+
+Repository branch protection/rulesets and cryptographic signing are also external administrator controls. Their desired state is documented, but they are not called ENFORCED until real settings/signature evidence exists.
 
 ## Truthful theatre
 
