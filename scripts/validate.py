@@ -8,6 +8,7 @@ PARITY_FILES = {
     Path('SANCTUM_INHERITANCE.md'),
     Path('THEATRICS.md'),
     Path('OPERATIONAL_STATUS.md'),
+    Path('governance/ADMIN_HARDENING.md'),
     Path('bootstrap/README.md'),
     Path('bootstrap/SANCTUM_PORTABLE_CORE.md'),
 }
@@ -19,8 +20,9 @@ def validate():
     errors = []
     required = (
         'AGENTS.md', 'THEATRICS.md', 'SANCTUM_INHERITANCE.md', 'OPERATIONAL_STATUS.md',
-        'README.md', 'VERSION', 'scripts/alfred.py', 'bootstrap/README.md',
-        'bootstrap/SANCTUM_PORTABLE_CORE.md', 'batcomputer/README.md', 'VERIFICATION.md'
+        'README.md', 'VERSION', 'scripts/alfred.py', 'scripts/package_manifest.py',
+        'bootstrap/README.md', 'bootstrap/SANCTUM_PORTABLE_CORE.md',
+        'batcomputer/README.md', 'governance/ADMIN_HARDENING.md', 'VERIFICATION.md'
     )
     for name in required:
         if not (ROOT / name).is_file():
@@ -72,7 +74,7 @@ def validate():
     if errors:
         print('\n'.join(errors))
         return 1
-    print('PASS: required files, public Sanctum snapshot, Alfred naming, parity markers, theatrics mapping, and publication scan.')
+    print('PASS: required files, public Sanctum snapshot, Alfred naming, parity markers, release identity tooling, theatrics mapping, and publication scan.')
     print('This proves package-level semantic wiring only; live tools, permissions, credentials, memory, and worker capabilities still require runtime probing.')
     return 0
 
