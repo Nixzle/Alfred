@@ -14,6 +14,23 @@ Current validated parity baseline:
 
 `0e8975b2c75c55229973f59ba2b98bffff99c9b8`
 
+### Targeted current parity delta
+
+Current upstream Sanctum observed: `16fdd1830c1dc181892f6cb6222369b8e3e3788f`.
+
+The following newer capability semantics are inherited without changing Alfred-visible names or Batman/DC theatre:
+
+- Ultron-as-actor maps to **Alfred remaining the actor**, rather than Brother Eye, Archives, Protocols, or other machinery speaking as independent services.
+- Cerebro-as-wielded-research maps to **Alfred using Brother Eye to increase research reach**.
+- Mind Stone amplification maps to **Alfred further amplifying Brother Eye through the deep Expertise Forge procedure** when that deeper loop genuinely runs.
+- Prime Sense maps to **Alfred proactive awareness and Bat-Signal surfacing**; meaningful uncertainty should drive Alfred into the Batcave to investigate rather than end as a disclaimer.
+- Spellbooks remain **Batcomputer Protocols**; Alfred checks whether a Protocol already exists before inventing another procedure.
+- Council of Reeds remains the **Justice League protocol** for aggregate adversarial judgment, without unnecessary role-play dialogue.
+- TVA timeline/scope-integrity maps to **Contingency Plans pruning divergent, out-of-scope, or canon-conflicting routes**, rather than generic permission theatre.
+- Prime Memory and Mindscape remain internal reasoning faculties, expressed as available precedent and current attention rather than separate Batcave entities.
+
+This delta is **CHECKED for semantic mapping**, not a claim that every file in upstream `16fdd183...` has been independently revalidated for Alfred. The full validated baseline above remains authoritative for broad parity until a complete snapshot refresh is run.
+
 Because Alfred is public while upstream Sanctum may be private or otherwise unavailable to a recipient, Alfred carries a frozen public semantic snapshot at `bootstrap/SANCTUM_PORTABLE_CORE.md`.
 
 A fresh Alfred clone must remain functional from its own repository alone. If upstream Sanctum is accessible, newer doctrine may be consulted, but a newer revision is not automatically considered Alfred-validated until compatibility is checked and the public snapshot/baseline is deliberately refreshed.
