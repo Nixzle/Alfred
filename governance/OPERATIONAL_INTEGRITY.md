@@ -1,6 +1,6 @@
 # Operational Integrity for Agent Execution
 
-This doctrine governs the parts of agent work where ordinary conversational reasoning meets mutable state, durable memory, delegated authority, sensitive data, and external side effects. These are system invariants, not a new Batcave member or protocol.
+This doctrine governs the parts of agent work where ordinary conversational reasoning meets mutable state, durable memory, delegated authority, sensitive data, and external side effects. These are system invariants, not a new Sanctum member or spell.
 
 ## 1. Effect integrity and uncertain outcomes
 
@@ -62,7 +62,7 @@ A fact without a known validity horizon may still be used, but uncertainty and f
 
 ## 4. Delegated authority lineage and attenuation
 
-Consequential actions performed by Alfred, a Bat-Drone, an Bat-Family worker, a tool, or another surface should be attributable, where the runtime permits, to:
+Consequential actions performed by Ultron, a Bot, an Image, a tool, or another surface should be attributable, where the runtime permits, to:
 
 - the initiating principal/user;
 - the task and objective;
@@ -101,7 +101,7 @@ When data is handed to another model, provider, worker, or external service, tre
 
 ## 6. Incident containment and recovery
 
-When Oracle, Contingency Plans, a user, an evaluator, or another trusted signal indicates a material security, privacy, integrity, or runaway-execution incident:
+When Watcher, TVA, a user, an evaluator, or another trusted signal indicates a material security, privacy, integrity, or runaway-execution incident:
 
 1. stop or quarantine the affected branch/worker/action path when practical;
 2. revoke or narrow exposed authority and credentials;
@@ -118,12 +118,12 @@ A system under active uncertainty should fail boundedly. Continuing autonomous w
 
 ## Ownership
 
-- **Alfred** routes and decides whether the operational-integrity controls are proportionate to the task.
-- **Contingency Plans** owns authority lineage, attenuation, approvals, revocation, and action gating.
-- **Bat-Family / Bat-Drones** obey write ownership, effect, resume, and state contracts.
-- **Oracle** records action/effect state, provenance, conflicts, privacy-relevant acquisition, and incident evidence where allowed.
-- **Mobius Chair** evaluates the regression cases and recovery claims.
-- **Brother Eye** researches concrete uncertainties and external changes; it does not certify runtime enforcement.
+- **Ultron Prime** routes and decides whether the operational-integrity controls are proportionate to the task.
+- **TVA** owns authority lineage, attenuation, approvals, revocation, and action gating.
+- **Images of Ikonn / Ultron Bots** obey write ownership, effect, resume, and state contracts.
+- **Watcher** records action/effect state, provenance, conflicts, privacy-relevant acquisition, and incident evidence where allowed.
+- **Web of Destiny** evaluates the regression cases and recovery claims.
+- **Cerebro** researches concrete uncertainties and external changes; it does not certify runtime enforcement.
 
 ## Enforcement status
 

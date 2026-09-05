@@ -1,9 +1,9 @@
 # Verification scope
 
-Release 0.1.0 includes automated package checks and launcher tests. The tests exercise profile separation, refusal to overwrite existing instructions, stable repeated initialization, account-override removal, safe argument handling, and a read-only doctor command.
+Alfred 0.2.0 is the work access surface for Ultron Prime.
 
-Initial local validation: package checks passed; all 9 launcher tests passed on Windows/Python 3.13; isolated installed-Codex CLI help smoke test exited successfully. GitHub Actions runs the package checks and unit suite on Windows and Linux; consult the actual workflow result for that commit.
+The bundled generic Sanctum snapshot is `16fdd1830c1dc181892f6cb6222369b8e3e3788f`. No home project state, private ChatGPT history, credentials, or personal memory are intentionally included.
 
-The local CLI integration smoke test invokes help through an isolated temporary profile; it makes no model call and copies no account credentials. A successful package/CLI check does not establish successful authentication, model behavior, tool availability, worker isolation, or compatibility with a company devpod.
+Release verification covers package structure, local Markdown links, identity/bootstrap behavior, profile isolation, launcher unit tests, Python compilation, and CI diff hygiene.
 
-The destination user must authenticate and run the first-session checks in `bootstrap/README.md`. No live model session or work-devpod test is claimed by this release. Markdown evaluation scenarios remain specifications until actually run and recorded.
+These checks do not prove workplace tool availability, model behavior, autonomous-worker capability, private-memory continuity, or access to any home runtime. Those remain destination-specific and must be probed there.

@@ -1,68 +1,31 @@
-# Alfred · The Batcave
+# Alfred · Ultron Prime work access
 
-“Your briefing is ready. Shall we make ourselves useful?”
+**Alfred is the access surface. The assistant is Ultron Prime.**
 
-A public Batman/DC-themed assistant operating framework for Codex in a development pod. Alfred brings planning, research, coding, verification, and restrained theatrics to your own workspace.
+This repository packages Ultron Prime and a portable snapshot of the generic Sanctum for use from a work/devpod environment through an isolated Codex profile.
 
-## Start in your devpod
+Bundled canonical Sanctum snapshot: `16fdd1830c1dc181892f6cb6222369b8e3e3788f`.
 
-Requires Python 3.10+, Git, and an installed [Codex CLI](https://learn.chatgpt.com/docs/cli). Use your work environment's approved Codex installation and account. This package has no Python dependencies and installs no services.
+It intentionally does **not** include home project state, private ChatGPT conversations, credentials, personal memories, or live integrations from another machine.
+
+## Start
 
 ```sh
 git clone https://github.com/Nixzle/Alfred.git
 cd Alfred
-python3 scripts/alfred.py doctor
-python3 scripts/alfred.py login
-python3 scripts/alfred.py run --workspace /path/to/your/project
+python scripts/alfred.py doctor
+python scripts/alfred.py login
+python scripts/alfred.py run --workspace /path/to/your/work/project
 ```
 
-On Windows use `python` instead of `python3`. For a headless pod, use `python3 scripts/alfred.py login --device-auth`. If the pod already supplies an approved model runner other than Codex, give that runner this repository's `AGENTS.md` and preserve its own project and permission rules.
+On Linux/macOS use `python3` if required. The isolated profile defaults to `~/.local/share/alfred/codex`; `ALFRED_HOME` may override it with another absolute path.
 
-Alfred's profile lives at `~/.local/share/alfred/codex`. Its instructions point to this checkout, so retain the checkout. Login, configuration, and sessions use that separate profile; the launcher never copies your normal Codex profile. It does not modify the target project's files. There is no account or paid API access bundled with the package.
+## Identity
 
-## The roster
+Ultron Prime is the actor. The Sanctum is the hub. Prime Sense, Prime Memory, and Mindscape remain Ultron faculties. Cerebro increases research reach; the Mind Stone amplifies Cerebro only when Expertise Forge actually runs. Archives and Spellbooks are consulted. Council of Reeds, Watcher, Web of Destiny, TVA, Ultron Bots, Images of Ikonn, Rogue, and other canonical members retain the responsibilities documented in this snapshot.
 
-| Name | Responsibility |
-| --- | --- |
-| **Alfred** | Intent, orchestration, decisions, and verified delivery |
-| **Batcave** | The operating framework |
-| **Brother Eye** | Research, discovery, and capability gaps |
-| **Bat-Drones** | Bounded specialist roles |
-| **Bat-Family** | Isolated autonomous workers when available |
-| **Oracle** | Evidence, activity, cost, and anomaly tracking |
-| **Mobius Chair / Metron** | Evaluation, alternatives, and regressions |
-| **Justice League** | Adversarial review of difficult decisions |
-| **Contingency Plans** | Permission and action-boundary rules |
-| **Batcomputer** | The collection of reusable **Protocols** |
-| **Archives** | Reusable knowledge and records |
-| **Mission Briefs** | Worker scope and acceptance criteria |
-| **Bat-Signal** | Actionable alerts |
-| **Batcave Console** | The interface label; currently the Codex terminal |
+Theatrics must reflect real execution. A name never creates a worker, tool, permission, memory, test, monitor, or runtime capability.
 
-## Use Alfred
+## Authority
 
-Try: “Review this repository and give me a mission brief.” Or: “Brother Eye, investigate the blocker, then implement and verify the smallest useful fix.”
-
-Alfred loads only the relevant guidance for the task. Named roles never imply imaginary tool calls, workers, tests, monitoring, or permissions. The package starts no background polling and makes no model calls while idle by itself. Actual Codex work uses your account's normal usage.
-
-## What is included
-
-- [Identity and routing](AGENTS.md), [role definitions](members/README.md), and [theatrics](THEATRICS.md).
-- [Batcomputer Protocols](batcomputer/README.md), [Brother Eye research](research/README.md), and an [Archives starter](archives/README.md).
-- [Contingency Plans](governance/OPERATIONAL_INTEGRITY.md), [actual enforcement status](governance/ENFORCEMENT_STATUS.md), and [evaluation scenarios](evals/README.md).
-- A standalone launcher, [devpod setup notes](bootstrap/README.md), and a [Mission Brief template](templates/MISSION_BRIEF.md).
-
-## Boundaries
-
-New named roles require a distinct responsibility that existing roles cannot reasonably cover, plus evidence that the added complexity improves results. Prefer strengthening or simplifying existing roles. Naming a role never creates runtime capability.
-
-Public package does not mean public access to your devpod. Each installation uses its own account and project. No private conversations, personal connector configuration, project history, or source repository history are included. This release is not a hosted chat service, multi-user platform, model, or security sandbox. Profile separation prevents automatic profile reuse; operating-system access and the host's sandbox still determine what a process can access. Configure workplace integrations separately.
-
-## Check the package
-
-```sh
-python3 scripts/validate.py
-python3 -m unittest discover -s tests -v
-```
-
-The automated tests check the launcher and package structure, not model quality or your company's environment. See [verification status](VERIFICATION.md). This is an unofficial fan-themed software project.
+The selected work project's own instructions and verified state remain authoritative for that project. Host/system/developer instructions and workplace policy outrank this package. A work installation does not inherit private access from home merely because it uses the same Ultron doctrine.

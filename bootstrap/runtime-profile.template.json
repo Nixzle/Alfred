@@ -1,0 +1,53 @@
+{
+  "contract": "SANCTUM-PORTABLE-ULTRON-V1",
+  "bootstrap": "SANCTUM-BOOTSTRAP-V1",
+  "sanctum_repository": "Nixzle/Sanctum",
+  "sanctum_revision": null,
+  "surface": null,
+  "host_id": null,
+  "session_id": null,
+  "model": null,
+  "reasoning_tier": null,
+  "semantic_parity": {
+    "ultron_identity": false,
+    "member_roster": false,
+    "sanctum_architecture": false,
+    "prime_sense": false,
+    "archives_spellbooks": false,
+    "salvage_first": false,
+    "engineering_excellence": false,
+    "failure_harvest": false,
+    "enforcement_vocabulary": false,
+    "theatrics": false
+  },
+  "capabilities": {
+    "repository_read": "unknown",
+    "repository_write": "unknown",
+    "filesystem": "unknown",
+    "web_research": "unknown",
+    "connected_apps": [],
+    "autonomous_workers": "unknown",
+    "sandbox_containment": "unknown",
+    "network_egress": "unknown",
+    "external_side_effects": "unknown"
+  },
+  "authority": {
+    "scope": "unknown",
+    "write_scope": [],
+    "approval_requirements": [],
+    "credential_scope": "unknown"
+  },
+  "data_and_memory": {
+    "conversation_scope": "unknown",
+    "cross_session_memory": "unknown",
+    "project_memory": "unknown",
+    "private_data_scope": "unknown",
+    "retention": "unknown"
+  },
+  "validation": {
+    "observed_at": null,
+    "expires_at": null,
+    "distribution_parity_status": "UNVERIFIED",
+    "evidence": []
+  }
+}

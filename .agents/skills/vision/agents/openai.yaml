@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vision"
+  short_description: "Model advice, approval gate, and token insights"
+  default_prompt: "Use $vision to recommend a model and estimate tokens for my prompt, then wait for my confirmation."
