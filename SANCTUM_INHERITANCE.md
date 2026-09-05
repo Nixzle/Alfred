@@ -12,7 +12,7 @@ Upstream Sanctum source: `Nixzle/Sanctum`.
 
 Current validated parity baseline:
 
-`98a00c324d86e468c34f7308f1e5d835eae34c32`
+`b997221b889138e40d8797fca13efc89d41afaf0`
 
 Because Alfred is public while upstream Sanctum may be private or otherwise unavailable to a recipient, Alfred carries a frozen public semantic snapshot at `bootstrap/SANCTUM_PORTABLE_CORE.md`.
 
@@ -63,6 +63,11 @@ Alfred should preserve the same capability classes represented in the current Sa
 - Oracle/Mobius-Chair trace → replay → regression improvement loops;
 - architectural saturation: validate/integrate/harden by default, reopen broad donor raids only on proactive-awareness triggers;
 - operational perfection: enforce → observe → break deliberately → recover → measure → tighten;
+- automatic/scheduled validation where the host supports it;
+- content-addressed recovery bundles and restore verification;
+- content-addressed release/package manifests;
+- integration fault tests against real bounded authority/effect machinery;
+- explicit repository-admin hardening requirements for protected branches, required checks and signed-release discipline;
 - software-engineering excellence: understand → map → inspect → salvage → smallest coherent change → proportional verification → runtime evidence → review → failure harvest;
 - game-development excellence: player promise → core loop → playable slice → runtime evidence → player feedback → diagnosis → iteration → polish → release gate.
 
