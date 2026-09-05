@@ -9,6 +9,7 @@ PARITY_FILES = {
     Path('THEATRICS.md'),
     Path('OPERATIONAL_STATUS.md'),
     Path('governance/ADMIN_HARDENING.md'),
+    Path('governance/ENFORCEMENT_STATUS.md'),
     Path('bootstrap/README.md'),
     Path('bootstrap/SANCTUM_PORTABLE_CORE.md'),
 }
@@ -22,7 +23,8 @@ def validate():
         'AGENTS.md', 'THEATRICS.md', 'SANCTUM_INHERITANCE.md', 'OPERATIONAL_STATUS.md',
         'README.md', 'VERSION', 'scripts/alfred.py', 'scripts/package_manifest.py',
         'bootstrap/README.md', 'bootstrap/SANCTUM_PORTABLE_CORE.md',
-        'batcomputer/README.md', 'governance/ADMIN_HARDENING.md', 'VERIFICATION.md'
+        'batcomputer/README.md', 'governance/ADMIN_HARDENING.md',
+        'governance/ENFORCEMENT_STATUS.md', 'VERIFICATION.md'
     )
     for name in required:
         if not (ROOT / name).is_file():
