@@ -13,7 +13,7 @@ PARITY_FILES = {
     Path('bootstrap/SANCTUM_PORTABLE_CORE.md'),
 }
 
-CURRENT_SANCTUM_BASELINE = '98a00c324d86e468c34f7308f1e5d835eae34c32'
+CURRENT_SANCTUM_BASELINE = 'b997221b889138e40d8797fca13efc89d41afaf0'
 
 
 def validate():
@@ -67,6 +67,8 @@ def validate():
             errors.append(f'Missing public Sanctum snapshot marker: {marker}')
     if 'ALFRED-SANCTUM-PARITY-V1' not in bootstrap:
         errors.append('Bootstrap does not load Sanctum parity contract')
+    if CURRENT_SANCTUM_BASELINE not in bootstrap:
+        errors.append('Bootstrap is not pinned to the current Sanctum parity baseline')
     for phrase in ('Brother Eye', 'Bat-Drones', 'Bat-Family', 'Oracle', 'Mobius Chair', 'Justice League', 'Contingency Plans'):
         if phrase not in theatrics:
             errors.append(f'Theatrics missing parity role: {phrase}')
