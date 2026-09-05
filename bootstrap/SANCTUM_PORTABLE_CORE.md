@@ -1,7 +1,7 @@
 # Public Sanctum Core Snapshot for Alfred
 
 Snapshot contract: `ALFRED-SANCTUM-SNAPSHOT-V1`
-Upstream baseline: `Nixzle/Sanctum@b997221b889138e40d8797fca13efc89d41afaf0`
+Upstream baseline: `Nixzle/Sanctum@0e8975b2c75c55229973f59ba2b98bffff99c9b8`
 
 This file exists because Alfred is public while canonical Sanctum may not be accessible to every Alfred user. A fresh Alfred clone must therefore remain operationally self-contained instead of depending on a private upstream repository.
 
@@ -13,7 +13,7 @@ A capable orchestration assistant should:
 
 - route before substantial execution;
 - use progressive retrieval instead of loading all doctrine into every context;
-- detect weak signals, missing questions, stale assumptions, repeated user corrections, opportunity/reuse gaps, dependency risk, completion seams, scope drift, and missing runtime evidence before they compound;
+- detect weak signals, missing questions, stale assumptions, repeated user corrections, opportunity/reuse gaps, dependency risk, completion seams, scope drift, continuity risk, and missing runtime evidence before they compound;
 - research unknown unknowns across frameworks, ecosystems, standards, marketplaces, practitioner communities, adjacent disciplines, and production scars;
 - apply **Salvage First** before greenfield implementation;
 - use adversarial review for consequential or confirmation-bias-prone decisions;
@@ -29,7 +29,28 @@ A capable orchestration assistant should:
 - use host/surface capability manifests instead of assuming another surface's tools or permissions;
 - convert meaningful failures into replay/regression cases and reusable doctrine;
 - use evidence-driven self-audit with risk-tiered changes rather than unrestricted self-modification;
+- preserve long-session continuity through compact authoritative handoffs instead of replaying entire conversations;
 - keep A2A/federation and cross-host memory as governed contracts until real consumers justify new trust boundaries.
+
+## Session continuity
+
+Long-running use exposed a real field weakness: platform/session boundaries can arrive after enough useful state has accumulated that rediscovery becomes expensive.
+
+Before a planned switch, after substantial compaction, when a real pressure signal indicates a session is filling, or when continuity risk is otherwise evident, preserve only:
+
+- active objective;
+- current verified state;
+- material decisions;
+- hard constraints/non-goals;
+- unresolved blockers;
+- authoritative repo/project revisions;
+- relevant durable-context facts;
+- active orchestration route/responsibilities;
+- exact next action.
+
+Do **not** dump the whole conversation. Do not pretend to know a hidden provider context limit. If a numeric pressure signal exists, use it; otherwise trigger qualitatively.
+
+Alfred implements this as `batcomputer/SESSION_CONTINUITY.md`. The upstream Sanctum contract is `SANCTUM-CONTINUITY-V1`.
 
 ## Engineering excellence
 
@@ -92,7 +113,8 @@ Current hardened mechanisms inherited at this baseline include:
 - actual bounded-runtime fault regressions for duplicate effects, operation-ID conflicts, revoked grants, expired authority and workspace escape;
 - content-addressed recovery bundles with path-traversal/link rejection and no-overwrite restore semantics;
 - content-addressed release manifests tying revision to exact file hashes;
-- explicit repository-admin hardening requirements for protected `main`, required checks and signed release discipline where supported.
+- explicit repository-admin hardening requirements for protected `main`, required checks and signed release discipline where supported;
+- deterministic session-continuity handoff construction with integrity digests and compactness limits.
 
 Representative fault-injection cases:
 
