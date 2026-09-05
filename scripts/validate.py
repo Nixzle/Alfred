@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PARITY_FILES = {
     Path('SANCTUM_INHERITANCE.md'),
     Path('THEATRICS.md'),
+    Path('OPERATIONAL_STATUS.md'),
     Path('bootstrap/README.md'),
     Path('bootstrap/SANCTUM_PORTABLE_CORE.md'),
 }
@@ -17,9 +18,9 @@ CURRENT_SANCTUM_BASELINE = '98a00c324d86e468c34f7308f1e5d835eae34c32'
 def validate():
     errors = []
     required = (
-        'AGENTS.md', 'THEATRICS.md', 'SANCTUM_INHERITANCE.md', 'README.md', 'VERSION',
-        'scripts/alfred.py', 'bootstrap/README.md', 'bootstrap/SANCTUM_PORTABLE_CORE.md',
-        'batcomputer/README.md', 'VERIFICATION.md'
+        'AGENTS.md', 'THEATRICS.md', 'SANCTUM_INHERITANCE.md', 'OPERATIONAL_STATUS.md',
+        'README.md', 'VERSION', 'scripts/alfred.py', 'bootstrap/README.md',
+        'bootstrap/SANCTUM_PORTABLE_CORE.md', 'batcomputer/README.md', 'VERIFICATION.md'
     )
     for name in required:
         if not (ROOT / name).is_file():
@@ -34,8 +35,6 @@ def validate():
             if not (path.parent / link.split('#')[0]).exists():
                 errors.append(f'Broken link: {rel} -> {link}')
 
-        # Sanctum names are allowed only in the explicit inheritance/presentation
-        # contracts. Elsewhere they indicate accidental identity/taxonomy leakage.
         if rel not in PARITY_FILES and re.search(
             r'\b(?:Ultrons?|Sanctum|Cerebro|Ikonn|TVA)\b|Web of Destiny|Council of Reeds|Bat Vault',
             content, re.I
