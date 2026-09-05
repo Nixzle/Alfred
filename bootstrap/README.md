@@ -11,14 +11,15 @@ Every fresh Alfred session should recover, in this order when accessible:
 1. `AGENTS.md` — Alfred operating rules and authority.
 2. `THEATRICS.md` — Alfred/Batcave presentation contract.
 3. `SANCTUM_INHERITANCE.md` — mapping from Sanctum capability classes into Alfred's existing members and Protocols.
-4. relevant current Batcave Archives/Protocols by progressive disclosure.
-5. current or pinned-compatible Sanctum doctrine for generic reusable capability questions when accessible.
+4. `bootstrap/SANCTUM_PORTABLE_CORE.md` — frozen public upstream capability/operational snapshot.
+5. relevant current Batcave Archives/Protocols by progressive disclosure.
+6. current or pinned-compatible upstream Sanctum doctrine for generic reusable capability questions when accessible.
 
 Known Sanctum parity baseline at the time this bootstrap was updated:
 
-`Nixzle/Sanctum@e835c0d914bf1d7a72da0bcbb2e488bc4566f8ed`
+`Nixzle/Sanctum@b997221b889138e40d8797fca13efc89d41afaf0`
 
-A newer Sanctum revision may be consulted, but it is not automatically treated as Alfred-validated until compatibility is checked. Alfred-specific project state, Slack behavior, permissions and local doctrine remain authoritative for Alfred.
+A newer Sanctum revision may be consulted, but it is not automatically treated as Alfred-validated until compatibility is checked and the public snapshot is deliberately refreshed. Alfred-specific project state, Slack behavior, permissions and local doctrine remain authoritative for Alfred.
 
 ## Launcher
 
@@ -28,13 +29,13 @@ The launcher initializes a dedicated Codex home, writes a short managed `AGENTS.
 2. Run `python3 scripts/alfred.py doctor` to check prerequisites and preview paths.
 3. Run `python3 scripts/alfred.py login` (or `login --device-auth` for headless environments). Authentication happens in Codex itself. The launcher strips inherited OpenAI/Codex API-key overrides so it cannot silently borrow an unrelated account. For an approved API key, use Codex's `login --with-api-key` flow through the launcher with the key on stdin; never put it in this repository.
 4. Run `python3 scripts/alfred.py run --workspace /absolute/path/to/project`.
-5. First ask Alfred to identify the active instructions, Sanctum parity baseline, accessible tools, project root, and approval boundaries. Verify these against the pod's actual state before assigning consequential work.
+5. First ask Alfred to identify the active instructions, frozen Sanctum parity baseline, accessible tools, project root, and approval boundaries. Verify these against the pod's actual state before assigning consequential work.
 
 ## Capability parity rule
 
 Semantic parity and live capability parity are separate.
 
-A fresh Alfred can inherit the same operating brain, routing doctrine, research standards, Prime-Sense-equivalent proactive awareness, engineering/game-development discipline, operational maturity model and theatrics. It does **not** automatically inherit another Alfred/Ultron surface's:
+A fresh Alfred can inherit the same operating brain, routing doctrine, research standards, proactive awareness, engineering/game-development discipline, operational maturity model and theatrics. It does **not** automatically inherit another Alfred/Ultron surface's:
 
 - credentials;
 - Slack permissions;
@@ -53,4 +54,4 @@ The launcher uses the installed CLI's default model and leaves sandbox/approval 
 
 Optional: `python3 scripts/alfred.py run --workspace /path/to/project -- --no-alt-screen`. Arguments after `--` go directly to Codex. Configure any additional integrations within Alfred's own profile using the `config` command, e.g. `python3 scripts/alfred.py config mcp list`.
 
-To update: review and pull changes in both Alfred and, when compatibility matters, Sanctum; rerun package validation; then start a fresh Alfred session. To stop: exit Codex. To uninstall: remove the checkout and, if you want to discard Alfred's sessions and credentials, its separate profile. The launcher never registers background startup.
+To update: review and pull changes in Alfred; when upstream Sanctum compatibility matters, compare the current upstream revision against the frozen snapshot, refresh deliberately, rerun package validation, then start a fresh Alfred session. To stop: exit Codex. To uninstall: remove the checkout and, if you want to discard Alfred's sessions and credentials, its separate profile. The launcher never registers background startup.
