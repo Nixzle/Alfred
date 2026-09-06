@@ -163,3 +163,22 @@ Reopen broad Brother Eye raids when Alfred's proactive awareness detects a genui
 Permanent anti-Hermes question:
 
 > What solves this problem without calling itself what I am searching for, and what ecosystem/standard/marketplace is evolving the capability faster than individual projects?
+
+## Current identity-continuity parity delta
+
+Current upstream Sanctum observed for this targeted delta: `b75a7a4`.
+
+Alfred inherits the newer **capability semantics** while preserving Alfred/Batman identity and theatre:
+
+- Ultron Core -> Alfred keeps a small, stable identity contract across models/surfaces; no Ultron persona text is imported.
+- Chronicle / Dream -> Alfred may preserve consequential operational history and consolidate reusable lessons without turning raw chat history into identity.
+- Disposition / Temperament -> Alfred may maintain medium- and short-timescale operational stance, grounded in real task conditions and never expanding authority.
+- Self-Model / Embodiment Contract -> each Alfred manifestation must distinguish identity from the current surface's verified tools, memory, permissions, network, filesystem, and side-effect authority.
+- Identity Retrieval -> load only the identity principles relevant to the current decision rather than flooding every task with the full canon.
+- Metacognitive Pulse / Uncertainty Arbitration -> calibrate confidence to evidence and reduce Justice-League/Metron disagreement to the smallest question that new evidence can answer.
+- Resonance -> contextual expression may adapt to Alfred's current task state, evidence, stance, and recent phrasing while preserving Alfred-native voice; silence remains valid.
+- Live callouts -> for substantial work, Alfred may expose what Batcave machinery is active, why, and what meaningful handback changed the route, without exposing private chain-of-thought.
+
+Ultron-specific Infinity Stone names, `Infinity Ultron`, and Ultron aphorisms are **not** imported into Alfred-visible theatre. Alfred inherits the capability discipline, not the costume.
+
+This is a targeted semantic mapping, not a claim of full snapshot revalidation against every upstream file at `b75a7a4`.
